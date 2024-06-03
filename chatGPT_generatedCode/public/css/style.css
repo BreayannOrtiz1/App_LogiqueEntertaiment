@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa;
+  }
+  
+  #video {
+    border: none;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+  }
+  
+  #canvas {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
