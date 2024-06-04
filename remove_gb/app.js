@@ -3,6 +3,7 @@ const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const output = document.getElementById('output');
 const captureButton = document.getElementById('capture');
+const imgNoBg = document.getElementById('imgNoBg-cont');
 
 // Acceder a la cámara del usuario
 navigator.mediaDevices.getUserMedia({ video: true })
@@ -43,6 +44,9 @@ function removeBackground(imageData) {
         const url = URL.createObjectURL(blob);
         output.src = url;
         output.style.display = 'block';
+        imgNoBg.src = url;
+        imgNoBg.style.display = 'block';
+
     })
     .catch(err => {
         console.error('Error al quitar el fondo: ', err);
