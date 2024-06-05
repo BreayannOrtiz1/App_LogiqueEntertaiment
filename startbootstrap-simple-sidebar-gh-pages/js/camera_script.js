@@ -145,6 +145,7 @@ async function removeBackground(imageData) {
         .then((blob) => {
           const url = URL.createObjectURL(blob);
           setResult(url);
+          console.log(url);
         })
       .catch((err) => {
         console.error("Error al quitar el fondo: ", err);
@@ -152,7 +153,51 @@ async function removeBackground(imageData) {
       });
   }
 
-function setResult(imgNoBg){
+async function drawBlobOnCanvas(blob) {
+    // Create an object URL from the blob
+    const url = URL.createObjectURL(blob);
+    
+    // Create a new image element
+    const img = new Image();
+    
+    // Set the image source to the object URL
+    img.src = url;
+
+    // Wait for the image to load
+    img.onload = () => {
+      // Get the canvas and its context
+      const context = canvas.getContext('2d');
+      
+      // Draw the image on the canvas
+      context.drawImage(img, 0, 0, canvas.width, canvas.height);
+      
+      // Release the object URL
+      URL.revokeObjectURL(url);
+    };
+    
+    // Handle any error while loading the image
+    img.onerror = (error) => {
+      console.error('Error loading image from blob:', error);
+      URL.revokeObjectURL(url);
+    };
+  }
+async function fetchImageAsBlob(imageUrl) {
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return await response.blob();
+}
+
+async function setResult(imgNoBg){
+    fetchImageAsBlob(imgNoBg)
+      .then(blob => drawBlobOnCanvas(blob))
+      .catch(error => console.error('Error fetching image:', error));
+    /* const context = canvas.getContext("2d");
+    console.log("type: " + typeof(imgNoBg));
+    console.log(imgNoBg);
+    context.drawImage(imgNoBg,0, 0, width, height); */
+    video.style.display = 'none';
     imgNoBg_id.src = imgNoBg;
     imgNoBg_id.style.display = 'block';
 }

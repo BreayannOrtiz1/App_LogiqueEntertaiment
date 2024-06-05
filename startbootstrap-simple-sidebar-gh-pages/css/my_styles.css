@@ -1,8 +1,4 @@
-body {
-    background-color: #f8f9fa;
-  }
-  
-  #video { /* change the video size */
+#video { /* change the video size */
     border: 1px solid black;
     box-shadow: 2px 2px 3px black;
     width: 1280px;
@@ -18,13 +14,13 @@ body {
 }
 
 #canvas {
-  display: none;
+  display: flex;
   vertical-align: top;
 }
 
 .camera {
   width: 340px;
-  display: inline-block;
+  display: flex;
 }
 
 .output {
@@ -33,7 +29,7 @@ body {
   vertical-align: top;
 }
   
-#startbutton {
+/* #startbutton {
   display: block;
   position: relative;
   margin-left: auto;
@@ -45,7 +41,7 @@ body {
   font-size: 14px;
   font-family: "Lucida Grande", "Arial", sans-serif;
   color: rgb(255 255 255 / 100%);
-}
+} */
 
 .contentarea {
   font-size: 16px;
@@ -54,8 +50,8 @@ body {
 }
 .imgNoBg{
   position:absolute;
-  height:1080px;
-  width:1920px;
+  height:720px;
+  width:1080px;
   top: 0px;
   left : 0px;
   display: none;
