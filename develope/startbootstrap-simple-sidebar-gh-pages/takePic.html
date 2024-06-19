@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webcam Image Collage</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/my_styles.css" type="text/css" media="screen" />
+</head>
+
+<body>
+    <div id="page-content-wrapper">
+        
+        <div class="contentarea">
+            <div class="container-fluid">
+                <h1 class="mt-4">TOMAR FOTO</h1>
+                <label for="videoInputSelect">Elige una cámara:</label>
+                <select id="videoInputSelect"></select>
+                <button id="startButton">Seleccionar</button>
+            </div>
+            <!-- Camera frame -->
+            <div class="camera">
+                <button id="startbutton" class="btn btn-primary" >Take photo</button>   
+                <video id="video">Video stream not available.</video>            
+            </div>
+            <canvas id="canvas"> </canvas> 
+            <!-- Result  -->   
+            <div style="position: relative; left: 0; top: 0;">
+                <img id="imgNoBg-cont" class='imgNoBg'/>
+                <img id="Fondo-cont" src="/media/F.jpg" class="Fondo"/>
+            </div>
+            
+        </div>
+
+    </div>
+    <script src="js/camera_script.js" charset="utf-8"></script>
+</body>
+
+</html>
+
+
